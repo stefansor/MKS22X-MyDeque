@@ -142,8 +142,29 @@ public class MyDeque<E>{
 
 
 
+
+  public E removeFirst(){
+    E trash = null;
+    if(start == data.length - 1){
+      trash = data[start];
+      data[start] = null;
+      start = 0;
+    }
+    else{
+      trash = data[start];
+      data[start] = null;
+      start++;
+    }
+    size--;
+    return trash;
+  }
+
+
+
+
+
+
   /*
-  public E removeFirst(){ }
   public E removeLast(){ }
   public E getFirst(){ }
   public E getLast(){ }
@@ -167,6 +188,10 @@ public class MyDeque<E>{
     System.out.println(yea.start);
     System.out.println(yea.end);
     System.out.println(yea);
+    System.out.println(yea.size());
+    System.out.println(yea.removeFirst());
+    System.out.println(yea);
+    System.out.println(yea.debugString());
     System.out.println(yea.size());
 
   }
