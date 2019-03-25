@@ -113,9 +113,6 @@ public class MyDeque<E>{
     }
   }
 
-
-
-
   public void addLast(E element){
     if(end + 1 == start || (start == 0 && end == data.length - 1)){
       resize();
@@ -140,9 +137,6 @@ public class MyDeque<E>{
     size++;
   }
 
-
-
-
   public E removeFirst(){
     E trash = null;
     if(start == data.length - 1){
@@ -158,12 +152,6 @@ public class MyDeque<E>{
     size--;
     return trash;
   }
-
-
-
-
-
-
 
   public E removeLast(){
     E trash = null;
@@ -181,15 +169,14 @@ public class MyDeque<E>{
     return trash;
   }
 
+  public E getFirst(){
+    return data[start];
+  }
 
+  public E getLast(){
+    return data[end];
+  }
 
-
-
-  /*
-  public E getFirst(){ }
-  public E getLast(){ }
-
-*/
 
 
 
@@ -217,5 +204,8 @@ public class MyDeque<E>{
     System.out.println(yea);
     System.out.println(yea.debugString());
     System.out.println(yea.size());
+    System.out.println("-----------------------");
+    System.out.println(yea.getFirst());
+    System.out.println(yea.getLast());
   }
 }
