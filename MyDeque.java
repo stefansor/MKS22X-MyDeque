@@ -1,3 +1,5 @@
+import java.util.*;
+
 public class MyDeque<E>{
   private E[] data;
   private int size, start, end;
@@ -94,6 +96,9 @@ public class MyDeque<E>{
   }
 
   public void addFirst(E element){
+    if(element == null){
+      throw new NullPointerException("Cannot add null to a deque");
+    }
     if(end + 1 == start || (start == 0 && end == data.length - 1)){
       resize();
       start = data.length - 1;
@@ -114,6 +119,9 @@ public class MyDeque<E>{
   }
 
   public void addLast(E element){
+    if(element == null){
+      throw new NullPointerException("Cannot add null to a deque");
+    }
     if(end + 1 == start || (start == 0 && end == data.length - 1)){
       resize();
       end++;
@@ -138,6 +146,9 @@ public class MyDeque<E>{
   }
 
   public E removeFirst(){
+    if(size == 0){
+      throw new NoSuchElementException("Deque is Empty");
+    }
     E trash = null;
     if(start == data.length - 1){
       trash = data[start];
@@ -154,6 +165,9 @@ public class MyDeque<E>{
   }
 
   public E removeLast(){
+    if(size == 0){
+      throw new NoSuchElementException("Deque is Empty");
+    }
     E trash = null;
     if(end == 0){
       trash = data[end];
@@ -170,10 +184,16 @@ public class MyDeque<E>{
   }
 
   public E getFirst(){
+    if(size == 0){
+      throw new NoSuchElementException("Deque is Empty");
+    }
     return data[start];
   }
 
   public E getLast(){
+    if(size == 0){
+      throw new NoSuchElementException("Deque is Empty");
+    }
     return data[end];
   }
 
@@ -207,5 +227,6 @@ public class MyDeque<E>{
     System.out.println("-----------------------");
     System.out.println(yea.getFirst());
     System.out.println(yea.getLast());
+    yea.addLast(null);
   }
 }
