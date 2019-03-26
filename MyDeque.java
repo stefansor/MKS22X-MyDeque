@@ -204,7 +204,7 @@ public class MyDeque<E>{
 
 
   public static void main(String[] args){
-    MyDeque yea = new MyDeque();
+    MyDeque<Integer> yea = new MyDeque<Integer>();
     System.out.println(yea.start);
     System.out.println(yea.end);
     System.out.println(yea.debugString());
