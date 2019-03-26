@@ -8,12 +8,14 @@ public class Calculator{
     public static double eval(String s){
       //sets up deque to use to process the terms
       Scanner stuff = new Scanner(s);
-      MyDeque tokens = new MyDeque();
+      MyDeque<Double> tokens = new MyDeque<Double>();
       //should be able to simulatneously add the doubles and evaluate expressions
       while(stuff.hasNext()){
         String ne = stuff.next();
-        if(!ne.equals("*") || !ne.equals("+") || !ne.equals("-") || !ne.equals("/") || !ne.equals("%")){
-          //parse into double and add to tokens
+        if(!ne.equals("*") && !ne.equals("+") && !ne.equals("-")
+        && !ne.equals("/") && !ne.equals("%")){
+          Double val = Double.parseDouble(ne);
+          tokens.addLast(val);
         }
         else if(ne.equals("*")){
           double newval = tokens.removeLast() * tokens.removeLast();
@@ -42,8 +44,9 @@ public class Calculator{
           tokens.addLast(newval);
         }
       }
-      //to compile and debug
-      System.out.println(tokens);
+      if(tokens.size() == 1){
+        return tokens.getLast();
+      }
       return -1;
 
     }
@@ -52,6 +55,6 @@ public class Calculator{
 
     public static void main(String[] args){
       String yea = "1 1 +";
-      eval(yea);
+      System.out.println(eval(yea));
     }
 }
