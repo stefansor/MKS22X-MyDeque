@@ -215,18 +215,27 @@ public class MyDeque<E>{
     System.out.println(yea.start);
     System.out.println(yea.end);
     System.out.println(yea);
-    System.out.println(yea.size());
-    System.out.println(yea.removeFirst());
-    System.out.println(yea);
-    System.out.println(yea.debugString());
-    System.out.println(yea.size());
     System.out.println(yea.removeLast());
-    System.out.println(yea);
     System.out.println(yea.debugString());
+    System.out.println(yea.start);
+    System.out.println(yea.end);
+    System.out.println(yea);
+    System.out.println(yea.removeLast());
+    System.out.println(yea.debugString());
+    System.out.println(yea.start);
+    System.out.println(yea.end);
+    System.out.println(yea);
+    System.out.println(yea.removeLast());
+    System.out.println(yea.debugString());
+    System.out.println(yea.start);
+    System.out.println(yea.end);
+    System.out.println(yea);
+    System.out.println(yea.removeLast());
+    System.out.println(yea.debugString());
+    System.out.println(yea.start);
+    System.out.println(yea.end);
+    System.out.println(yea);
     System.out.println(yea.size());
-    System.out.println("-----------------------");
     System.out.println(yea.getFirst());
-    System.out.println(yea.getLast());
-    yea.addLast(null);
   }
 }
