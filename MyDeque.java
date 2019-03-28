@@ -17,7 +17,12 @@ public class MyDeque<E>{
 
   @SuppressWarnings("unchecked")
   public MyDeque(int initialCapacity){
-    data = (E[])new Object[initialCapacity];
+    if(initialCapacity == 0){
+      data = (E[])new Object[1];
+    }
+    else{
+      data = (E[])new Object[initialCapacity];
+    }
     size = 0;
     start = 0;
     end = 0;
@@ -29,7 +34,7 @@ public class MyDeque<E>{
 
   @SuppressWarnings("unchecked")
   private void resize(){
-    E[] newdata = (E[])new Object[data.length * 2 + 1];
+    E[] newdata = (E[])new Object[data.length * 2];
     if(start > end){
       int a = 0;
       for(int i = start; i < data.length; i++){
@@ -40,6 +45,7 @@ public class MyDeque<E>{
         newdata[a] = data[i];
         a++;
       }
+      a--;
       end = a;
     }
     else{
@@ -48,6 +54,7 @@ public class MyDeque<E>{
         newdata[b] = data[i];
         b++;
       }
+      b--;
       end = b;
     }
     start = 0;
@@ -99,7 +106,7 @@ public class MyDeque<E>{
     if(element == null){
       throw new NullPointerException("Cannot add null to a deque");
     }
-    if(end + 1 == start || (start == 0 && end == data.length - 1)){
+    else if(end + 1 == start || (start == 0 && end == data.length - 1)){
       resize();
       start = data.length - 1;
       data[start] = element;
@@ -122,7 +129,7 @@ public class MyDeque<E>{
     if(element == null){
       throw new NullPointerException("Cannot add null to a deque");
     }
-    if(end + 1 == start || (start == 0 && end == data.length - 1)){
+    else if(end + 1 == start || (start == 0 && end == data.length - 1)){
       resize();
       end++;
       data[end] = element;
@@ -208,34 +215,22 @@ public class MyDeque<E>{
     System.out.println(yea.start);
     System.out.println(yea.end);
     System.out.println(yea.debugString());
-    for(int i = 0; i < 5 ; i++){
+    for(int i = 1; i < 20 ; i++){
       yea.addLast(i);
     }
     System.out.println(yea.debugString());
+    System.out.println(yea);
     System.out.println(yea.start);
     System.out.println(yea.end);
+    yea.removeLast();
+    yea.removeLast();
+    yea.removeLast();
+    yea.removeLast();
+    yea.removeLast();
+    yea.removeLast();
     System.out.println(yea);
-    System.out.println(yea.removeLast());
-    System.out.println(yea.debugString());
     System.out.println(yea.start);
     System.out.println(yea.end);
-    System.out.println(yea);
-    System.out.println(yea.removeLast());
-    System.out.println(yea.debugString());
-    System.out.println(yea.start);
-    System.out.println(yea.end);
-    System.out.println(yea);
-    System.out.println(yea.removeLast());
-    System.out.println(yea.debugString());
-    System.out.println(yea.start);
-    System.out.println(yea.end);
-    System.out.println(yea);
-    System.out.println(yea.removeLast());
-    System.out.println(yea.debugString());
-    System.out.println(yea.start);
-    System.out.println(yea.end);
-    System.out.println(yea);
-    System.out.println(yea.size());
-    System.out.println(yea.getFirst());
+
   }
 }
